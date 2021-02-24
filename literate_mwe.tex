@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage{fix-cm}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\newcommand\bmmax{0} % used to fix issues with bm and e.g. esint
+\usepackage{bm}
+\usepackage[bb=boondox, cal=boondox]{mathalfa}
+\let\mathbbold\mathbb
+\AtBeginDocument{% thanks fourier
+	\let\mathbb\relax
+	\newcommand{\mathbb}[1]{\mathbbold{#1}}
+}
+\usepackage{upgreek}
+\let\mathsfit\undef
+\DeclareMathAlphabet{\mathsfit}{T1}{\sfdefault}{\mddefault}{\sldefault}
+\SetMathAlphabet{\mathsfit}{bold}{T1}{\sfdefault}{\bfdefault}{\sldefault}
+\usepackage{listings}
+\input{literate.tex}
+
+\let\tmp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\tmp
+\let\tmp\upepsilon
+\let\upepsilon\upvarepsilon
+\let\upvarepsilon\tmp
+
+\begin{document}
+
+\lstinputlisting{literate_test.txt}
+
+\end{document}
